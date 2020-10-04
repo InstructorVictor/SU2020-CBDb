@@ -1,0 +1,36 @@
+/*   Style the complete comic table */
+div#divViewComics table {
+  background-color: aquamarine;
+  margin: auto;
+  width: 95%;
+  border: 1em dashed purple;
+  word-wrap: break-word;
+}
+
+/* Style the headings <th> of the table */
+div#divViewComics table tr th {
+  background-color: rebeccapurple;
+  color: white;
+}
+
+/* Style both the regular cell <td> and the heading cell <th> the same way */
+div#divViewComics table tr td, 
+  div#divViewComics table tr th {
+  border: 2px dotted red;
+}
+
+/* Zebra Stripe the rows (odd/even) */
+div#divViewComics table tr:nth-of-type(even) {
+  background-color: yellow;
+}
+
+div#divViewComics table tr:nth-of-type(odd) {
+  background-color: yellowgreen;
+}
+
+/*
+  Name: Victor Campos <vcampos@sdccd.edu>
+  Project: CBDb Summer 2020
+  Description: The Comic Book Database
+  Date: August 2020
+*/

@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+    <script src="components/loader.js"></script>
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section data-role="page" id="pgWelcome">
+        <article role="main" class="ui-content">
+            <p><img src="#" alt="CBDb Logo"></p>
+            <a data-role="button"  data-transition="flow" href="#pgLogIn">Log In</a>
+            <a data-role="button"  data-transition="flow" href="#pgSignUp">Sign Up</a>
+        </article>
+    </section>
+
+    <section data-role="page" id="pgLogIn">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Log In</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <form id="fmLogIn">
+                <label for="inEmailLogIn">Email</label><input type="email" required name="inEmailLogIn" id="inEmailLogIn">
+                <label for="inPasswordLogIn">Password</label><input type="password" required name="inPasswordLogIn" id="inPasswordLogIn">
+                <input type="submit" value="Go"> 
+                <input type="reset" value="Clear">
+            </form>
+
+            <div data-role="popup" class="ui-content" id="popErrorLogInNotExists">Account doesn't exist!</div>
+            <div data-role="popup" class="ui-content" id="popErrorLogInWrongPassword">Incorrect password!</div>
+            <div data-role="popup" class="ui-content" id="popErrorLogInTooMany">Too many attempts!</div>
+            <div data-role="popup" class="ui-content" id="popErrorFort">Forgot Password?</div>
+
+        </article>
+    </section>
+
+    <section data-role="page" id="pgSignUp">
+        <header data-role="header" data-add-back-btn="true">
+            <h1>Sign Up</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <form id="fmSignUp"> 
+                <label for="inEmailSignUp">Email</label><input type="email" required name="inEmailSignUp" id="inEmailSignUp">
+                <label for="inPasswordSignUp">Password</label><input type="password" required name="inPasswordSignUp" id="inPasswordSignUp">
+                <label for="inPasswordConfirmSignUp">Confirm Password</label><input type="password" required name="inPasswordConfirmSignUp" id="inPasswordConfirmSignUp">
+                <input type="submit" value="Create Account"> 
+                <input type="reset" value="Clear">
+            </form>
+        
+        <div data-role="popup" class="ui-content" id="popErrorSignUpMissmatch">Password doesn't match!</div>
+        <div data-role="popup" class="ui-content" id="popErrorSignUpExists">Account already exists!</div>
+        <div data-role="popup" class="ui-content" id="popErrorSignUpWeak">Password must contain... jdkjkdfkdf</div>
+        <div data-role="popup" class="ui-content" id="popSuccessSignUpWelcome">Thank you registering!</div>
+        </article>
+    </section>
+
+    <section data-role="page" id="pgHome">
+        <header data-role="header">
+            <h1>CBDb</h1>
+            <!-- <a href="#pgOptions" data-transition="pop" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Options</a> -->
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" data-transition="flip" class="ui-btn-active ui-state-persist">Home</a></li>
+                    <li><a href="#pgSaveComic" data-icon="edit" data-transition="flip">Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="bars" data-transition="flip">View</a></li>
+                    <li><a href="#pgOptions" data-icon="gear" data-transition="flip">Options</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article role="main" class="ui-content">
+            <p>CBDb is the best app that lets you keep track of your comic book collection!</p>
+            <p><img src="#" alt="Spider-Woman"></p>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Copyright</h4>
+        </footer>
+    </section>
+
+    <section data-role="page" id="pgSaveComic">
+        <header data-role="header">
+            <h1>CBDb</h1>
+            <a href="#pgOptions" data-transition="pop" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Options</a>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" data-transition="flip">Home</a></li>
+                    <li><a href="#pgSaveComic" data-icon="edit" data-transition="flip" class="ui-btn-active ui-state-persist">Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="bars" data-transition="flip">View</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article role="main" class="ui-content">
+           <form id="fmSaveComic">
+            <fieldset>
+                <legend>Required</legend>
+                <label for="inTitleSave">Title</label><input type="text" required name="inTitleSave" id="inTitleSave">
+                <label for="inNumberSave">Number</label><input type="number" required name="inNumberSave" id="inNumberSave">
+                <label for="inYearSave">Year</label><input type="number" required name="inYearSave" id="inYearSave">
+            </fieldset>
+            <fieldset>
+                <legend>Optional</legend>
+                <label for="inPublisherSave">Publisher</label><input type="text" name="inPublisherSave" id="inPublisherSave">
+                <label for="inNotesSave">Notes</label><textarea name="inNotesSave" id="inNotesSave"></textarea>
+            </fieldset>
+            <input type="submit" value="Save">
+            <input type="reset" value="Clear">
+           </form>
+           <div data-role="popup" class="ui-content" id="popSuccessSaveComicAdded">Comic saved!</div>
+           <div data-role="popup" class="ui-content" id="popErrorSaveExists">You already have it!</div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Copyright</h4>
+        </footer>
+    </section>
+
+    <section data-role="page" id="pgViewComics">
+        <header data-role="header">
+            <h1>CBDb</h1>
+            <a href="#pgOptions" data-transition="pop" data-icon="gear" data-iconpos="notext" class="ui-btn-right">Options</a>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#pgHome" data-icon="home" data-transition="flip">Home</a></li>
+                    <li><a href="#pgSaveComic" data-icon="edit" data-transition="flip">Save</a></li>
+                    <li><a href="#pgViewComics" data-icon="bars" data-transition="flip" class="ui-btn-active ui-state-persist">View</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article role="main" class="ui-content">
+            <div id="divViewComics">Comics go later</div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <h4 class="userEmail">Copyright</h4>
+        </footer>
+    </section>
+
+    <section data-role="page" data-dialog="true" id="pgOptions">
+        <header data-role="header">
+            <h1>Options</h1>
+        </header>
+        <article role="main" class="ui-content">
+            <h2>About</h2>
+            <p><img src="img/vmcampos_logo-512.png" alt="Comic Book Database Logo"></p>
+            <p>
+                The Comic Book Database is designed by Victor Campos.
+                <a href="#" data-role="button" id="btnLogOut">Log Out</a>
+                <a href="#" data-role="button" id="btnDeleteCollection">Delete Collection</a>
+            </p>
+        </article>
+    </section>
+
+    <section data-role="page" id="pgComicViewEdit">
+        <header data-role="header">
+            <h1>Edit</h1>
+        </header>
+        <article role="main" class="ui-content">
+           <form id="fmEditComicInfo">
+                <label for="inTitleEdit">Title</label><input type="text" name="inTitleEdit" id="inTitleEdit">
+                <label for="inNumberEdit">Number</label><input type="number"  name="inNumberEdit" id="inNumberEdit">
+                <label for="inYearEdit">Year</label><input type="number" name="inYearEdit" id="inYearEdit">
+                <label for="inPublisherEdit">Publisher</label><input type="text" name="inPublisherEdit" id="inPublisherEdit">
+                <label for="inNotesEdit">Notes</label><textarea name="inNotesEdit" id="inNotesEdit"></textarea>
+            <input type="submit" value="Update">
+            <input type="button" value="Delete" id="btnDeleteComic">
+            <input type="button" value="Cancel" id="btnEditComicCancel">
+           </form>
+        </article>
+    </section>
+
+  <script src="js/jquery-2.1.0.min.js"></script>
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+  <script src="js/pouchdb-7.2.1.min.js"></script>
+  <script src="js/mycode.js"></script>
+  <!--
+    Name: Victor Campos <vcampos@sdccd.edu>
+    Project: CBDb Summer 2020
+    Description: The Comic Book Database
+    Date: August 2020
+  -->
+</body>
+</html>
